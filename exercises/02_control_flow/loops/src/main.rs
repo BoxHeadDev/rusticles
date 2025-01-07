@@ -1,40 +1,9 @@
 fn main() {
-    // Will the following compile?
-    // What is the output?
-    single_condition();
-    multiple_conditions();
-    inline_expression();
-
     loop_return_values();
     inner_loop_break();
     while_loop();
     collection_while_loop();
     collection_for_loop();
-}
-
-fn single_condition(){
-    let number = 3;
-    
-    if number {
-        println!("number was three");
-    }
-}
-
-fn multiple_conditions(){
-    let number = 6;
-    
-    println!("number is divisible by 4");
-    println!("number is divisible by 3");
-    println!("number is divisible by 2");
-    println!("number is not divisible by 4, 3, or 2");
-}
-
-fn inline_expression() {
-    let condition = true;
-
-    let number = if condition { 5 } else { "six" };
-
-    println!("The value of number is: {number}");
 }
 
 // Assign the value to result when counter is 10
@@ -102,6 +71,6 @@ fn collection_for_loop() {
 // Loop from 4 to 1 using a range
 fn range_loop() {
     println!("{number}!");
-    
+
     println!("LIFTOFF!!!");
 }
