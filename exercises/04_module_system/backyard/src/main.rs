@@ -8,9 +8,11 @@
 //     ├── garden.rs
 //     └── main.rs
 
+// TO DO: Bring Asparagus struct into scope
+use crate::garden::vegetables::Asparagus;
+
 pub mod garden;
 
-// TO DO: Bring Asparagus struct into scope
 fn main() {
     let plant = Asparagus {};
     println!("I'm growing {plant:?}!");
