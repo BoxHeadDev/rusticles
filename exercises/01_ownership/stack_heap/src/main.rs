@@ -1,5 +1,5 @@
 fn main() {
-    // Will it compile? Why?
+    // Will it compile?
     // What will be the output?
     ownership_1();
     ownership_2();
@@ -14,47 +14,40 @@ fn main() {
     ownership_11();
 }
 
-// Variable used before defined
 fn ownership_1(){
     read(x);
     let x = true;
 }
 
-//
 fn ownership_2(){
     let a_num = 4;
     make_and_drop();
 }
 
-// Ownership is moved to b
 fn ownership_3(){
     let a = Box::new([0; 1_000_000]);
     let b = a;
 }
 
-// Using first when it no longer points to heap
 fn ownership_4(){
     let first = String::from("Ferris");
     let full = add_suffix(first);
     println!("{full}, originally {first}");
 }
 
-// Clone creates new value on heap
 fn ownership_5(){
     let second = String::from("Ferris");
     let second_clone = second.clone();
-    let whole = add_suffix(second_clone);
+    let whole = add_suffix(first_clone);
     println!("{whole}, originally {second}");
 }
 
-// return value is assigned to s2
 fn ownership_6(){
     let s = String::from("hello");
     let s2 = add_suffix(s);
-    println!("{}", s2); // hello world
+    println!("{}", s2);
 }
 
-// s could be assigned to s2 causing undefined behaviour
 fn ownership_7(){
     let s = String::from("hello");
     let s2;
@@ -65,29 +58,25 @@ fn ownership_7(){
     println!("{}", s);
 }
 
-// b no longer points to value on heap
 fn ownership_8(){
     let b = Box::new(0);
     let b2 = b;
     move_a_box(b);
 }
-
-// b is not deallocated until move_a_box is called
+   
 fn ownership_9(){
     let b = Box::new(0);
     let b2 = b;
     println!("{}", b);
     move_a_box(b2); 
 }
-
-// b is passed to move_a_box
+    
 fn ownership_10(){
     let b = Box::new(0);
     move_a_box(b);
     let b2 = b;
 }
 
-// b is passed to move_a_box
 fn ownership_11(){
    let b = Box::new(0);
    move_a_box(b);

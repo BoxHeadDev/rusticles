@@ -1,4 +1,4 @@
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 struct Rectangle {
     width: u32,
     height: u32,
@@ -17,46 +17,32 @@ fn main() {
     struct_10();
 }
 
-impl Rectangle {
-    fn area(&self) -> u32 {
-        self.width * self.height
-    }
-    fn width(&self) -> bool {
-        self.width > 0
-    }
-    fn can_hold(&self, other: &Rectangle) -> bool {
-        self.width > other.width && self.height > other.height
-    }
-    fn set_width(&mut self, width: u32) {
-        self.width = width;
-    }
-    fn max(&self, other: &Self) -> Self {
-        let w = self.width.max(other.width);
-        let h = self.height.max(other.height);
-        Rectangle {
-            width: w,
-            height: h,
-        }
-    }
-    fn set_to_max(&mut self, other: &Rectangle) {
-        *self = self.max(other);
-    }
-    fn set_width(&mut self, width: u32) {
-        self.width = width;
-    }
+// Add the following functions as a methods on Rectangle
+fn area(rectangle: &Rectangle) -> u32 {
+    rectangle.width * rectangle.height
+}
 
-    fn max(self, other: Rectangle) -> Rectangle {
-        Rectangle {
-            width: self.width.max(other.width),
-            height: self.height.max(other.height),
-        }
+fn width(rectangle: &Rectangle) -> bool {
+    rectangle.width > 0
+}
+
+fn can_hold(rect1: &Rectangle, rect2: &Rectangle) -> bool {
+    rect1.width > rect2.width && rect1.height > rect2.height
+}
+
+fn set_width(rectangle: &Rectangle, width: u32) {
+    rectangle.width = width;
+}
+
+fn max(rectangle: Rectangle, other: Rectangle) -> Rectangle {
+    Rectangle {
+        width: rectangle.width.max(other.width),
+        height: rectangle.height.max(other.height),
     }
-    fn square(size: u32) -> Self {
-        Self {
-            width: size,
-            height: size,
-        }
-    }
+}
+
+fn set_to_max(&mut rectangle: Rectangle, other: Rectangle) {
+    *rectangle = rectangle.max(other);
 }
 
 // Update the following to use methods
@@ -70,7 +56,7 @@ fn struct_1() {
 
     println!(
         "The area of the rectangle is {} square pixels.",
-        rect1.area()
+        area(&rect1)
     );
 }
 
@@ -106,7 +92,12 @@ fn struct_3() {
 
 // Implement square as an Associated Function (static method)
 fn struct_4() {
-    let sq = Rectangle::square(3);
+    fn square(size: u32) -> Rectangle {
+        Rectangle {
+            width: size,
+            height: size,
+        }
+    }
 }
 
 // Replace method calls with function (syntatic sugar)
@@ -115,8 +106,8 @@ fn struct_5() {
         width: 1,
         height: 2,
     };
-    let area1 = Rectangle::area(&r);
-    Rectangle::set_width(&mut r, 2);
+    let area1 = r.area();
+    r.set_width(2);
 }
 
 //
@@ -134,16 +125,16 @@ fn struct_6() {
     let max_rect = rect.max(other_rect);
 }
 
-// rect needs to be mutable
+// Fix error
 fn struct_7() {
-    let mut rect = Rectangle {
+    let rect = Rectangle {
         width: 0,
         height: 0,
     };
     rect.set_width(0);
 }
 
-// Create a mutable reference to rect
+// Fix error
 fn struct_8() {
     let mut rect = Rectangle {
         width: 0,
@@ -151,11 +142,11 @@ fn struct_8() {
     };
     rect.set_width(1);
 
-    let rect_ref = &mut rect;
+    let rect_ref = &rect;
     rect_ref.set_width(2);
 }
 
-// Updated max to take an immutable reference
+// Fix error
 fn struct_9() {
     let rect = Rectangle {
         width: 0,
@@ -165,11 +156,11 @@ fn struct_9() {
         width: 1,
         height: 1,
     };
-    let max_rect = rect.max(&other_rect); // Pass a reference to other_rect
+    let max_rect = rect.max(other_rect);
     println!("{}", rect.area());
 }
 
-// The max method borrows self but takes ownership of other, which makes it incompatible with set_to_max, where self is mutably borrowed and attempts to pass other to max
+// Fix error
 fn struct_10() {
     let mut rect = Rectangle {
         width: 0,
@@ -182,10 +173,10 @@ fn struct_10() {
     rect.set_to_max(other_rect);
 }
 
-// mutable pointer is more idiomatic (doesn't take ownership)
+// Fix error
 struct Point(i32, i32);
 impl Point {
-    fn incr_v1(&mut self) {
+    fn incr_v1(mut self) {
         self.0 += 1;
     }
 }
@@ -196,7 +187,7 @@ fn struct_11() {
     println!("{}", p.0);
 }
 
-// x held onto the mutable reference
+// Fix error
 struct Point {
     x: i32,
     y: i32,
@@ -209,9 +200,7 @@ impl Point {
 
 fn struct_12() {
     let mut p = Point { x: 1, y: 2 };
-    {
-        let x = p.get_x(); // Mutable borrow of `p` for `x`
-        *x += 1; // Update `x`
-    } // Mutable borrow of `p` ends here
-    println!("{} {}", p.x, p.y); // Now you can access `p.y` safely
+    let x = p.get_x();
+    *x += 1;
+    println!("{} {}", *x, p.y);
 }

@@ -10,7 +10,7 @@ enum Coin {
     Penny,
     Nickel,
     Dime,
-    Quarter(UsState),
+    Quarter,
 }
 
 fn main() {
@@ -32,16 +32,12 @@ fn pattern_matching_1() {
 
 fn value_in_cents(coin: Coin) -> u8 {
     match coin {
-        Coin::Penny => {
-            println!("Lucky penny!");
-            1
-        }
+        // Print "Lucky penny!" as well
+        Coin::Penny => 1,
         Coin::Nickel => 5,
         Coin::Dime => 10,
-        Coin::Quarter(state) => {
-            println!("State quarter from {state:?}!");
-            25
-        }
+        // Bind the quarter value to a variable
+        Coin::Quarter => 25,
     }
 }
 
@@ -52,10 +48,8 @@ fn pattern_matching_2() {
 }
 
 // Fix the following match expression
-// matches are exhaustive (all possibilities)
 fn plus_one(x: Option<i32>) -> Option<i32> {
     match x {
-        None => None,
         Some(i) => Some(i + 1),
     }
 }
@@ -67,19 +61,16 @@ fn pattern_matching_3() {
     match dice_roll {
         3 => add_fancy_hat(),
         7 => remove_fancy_hat(),
-        other => move_player(other),
     }
 }
 fn move_player(num_spaces: u8) {}
 
 // Add a catch all pattern using reroll
-// reroll should take no arguments
 fn pattern_matching_4() {
     let dice_roll = 9;
     match dice_roll {
         3 => add_fancy_hat(),
         7 => remove_fancy_hat(),
-        _ => reroll(),
     }
 }
 fn reroll() {}
@@ -91,7 +82,6 @@ fn pattern_matching_5() {
     match dice_roll {
         3 => add_fancy_hat(),
         7 => remove_fancy_hat(),
-        _ => (), // unit value (empty tuple)
     }
 }
 
@@ -102,9 +92,7 @@ fn remove_fancy_hat() {}
 fn pattern_matching_6() {
     let opt: Option<String> = Some(String::from("Hello world"));
 
-    // solution 1: opt became &opt
-    match &opt {
-        // Some(_) => println!("Some!"), // Solution 2: _ became s
+    match opt {
         Some(s) => println!("Some: {}", s),
         None => println!("None!"),
     };
@@ -126,7 +114,7 @@ fn pattern_matching_7() {
         Location::Range(0, _) => 0,
         _ => -2,
     };
-    println!("{n}"); // 5
+    println!("{n}");
 }
 
 // Why does the following not compile?
@@ -135,7 +123,6 @@ enum Either {
     Right(String),
 }
 
-// The match arm Either::Right(s) moves the field s, so x cannot be used in the println.
 fn pattern_matching_8() {
     let x = Either::Right(String::from("Hello world"));
     let value = match x {
@@ -147,27 +134,29 @@ fn pattern_matching_8() {
 
 // Update the following to use a match expression
 fn decr_twice(n: u32) -> Option<u32> {
-    match n {
-        0 => None,
-        1 => None,
-        n2 => Some(n2 - 2),
+    if n == 0 {
+        None
+    } else if n == 1 {
+        None
+    } else {
+        Some(n - 2)
     }
 }
 
 // Write more concise using IF expressions
 fn pattern_matching_9() {
     let config_max = Some(3u8);
-    if let Some(max) = config_max {
-        println!("The maximum is configured to be {max}");
+    match config_max {
+        Some(max) => println!("The maximum is configured to be {max}"),
+        _ => (),
     }
 }
 
 // Write more concise using IF expressions
 fn pattern_matching_10() {
     let mut count = 0;
-    if let Coin::Quarter(state) = coin {
-        println!("State quarter from {state:?}!");
-    } else {
-        count += 1;
+    match coin {
+        Coin::Quarter(state) => println!("State quarter from {state:?}!"),
+        _ => count += 1,
     }
 }

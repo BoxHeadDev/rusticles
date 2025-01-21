@@ -1,11 +1,5 @@
 // Create a user struct
 // Fields: active, username, email, sign_in_count
-struct User {
-    active: bool,
-    username: String,
-    email: String,
-    sign_in_count: u64,
-}
 
 fn main() {
     struct_1();
@@ -21,33 +15,20 @@ fn main() {
 
 fn struct_1() {
     // Create an instance of User
-    let mut user1 = User {
-        email: String::from("someone@example.com"),
-        username: String::from("someusername123"),
-        active: true,
-        sign_in_count: 1,
-    };
+    // let mut user1 = ??
 
     // Change the email to a different string
-    user1.email = String::from("anotheremail@example.com");
+    // anotheremail@example.com
 }
 
 fn struct_2() {
     // Create an instance of User with the same values as user1
-    let user2 = User {
-        active: user1.active,
-        username: user1.username,
-        email: String::from("another@example.com"),
-        sign_in_count: user1.sign_in_count,
-    };
+    // let user2 = ??
 }
 
 fn struct_3() {
     // Create an instance of User by spreading user1 values
-    let user3 = User {
-        email: String::from("another@example.com"),
-        ..user1
-    };
+    // let user3 = ??
 }
 
 fn struct_4() {
@@ -58,17 +39,9 @@ fn struct_4() {
     )
 }
 
-fn build_user(email: String, username: String) -> User {
-    User {
-        active: true,
-        username: username,
-        email: email,
-        sign_in_count: 1,
-    }
-}
+fn build_user(email: String, username: String) -> User {}
 
-// unit-like struct
-struct AlwaysEqual;
+// Create a unit-like struct AlwaysEqual
 
 fn struct_5() {
     let subject = AlwaysEqual;
@@ -77,31 +50,31 @@ fn struct_5() {
 // Fix the following
 struct User {
     active: bool,
-    username: String,
-    email: String,
+    username: &str,
+    email: &str,
     sign_in_count: u64,
 }
 
 fn struct_6() {
     let user6 = User {
         active: true,
-        username: String::from("someusername123"),
-        email: String::from("someone@example.com"),
+        username: "someusername123",
+        email: "someone@example.com",
         sign_in_count: 1,
     };
 }
 
-struct Color(i32, i32, i32);
-struct Point(i32, i32, i32);
+// Create a struct tuple called Color and Point (i32)
 
 fn tuple_struct_1() {
     // Create instances of Color and Point struct tuples
-    let black = Color(0, 0, 0);
-    let origin = Point(0, 0, 0);
+    // let black = ??
+    // let origin = ??
 }
 
 fn tuple_struct_2() {
+    // Create instance of Color using struct tuple
+    // let black = ??
+
     // Add each of the Color values to their own variable
-    let black = Color(0, 0, 0);
-    let (x, y, z) = black;
 }

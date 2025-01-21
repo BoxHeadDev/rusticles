@@ -6,7 +6,7 @@ fn main() {
     collection_for_loop();
 }
 
-// Break out of loop
+// Assign the value to result when counter is 10
 fn loop_return_values() {
     let mut counter = 0;
 
@@ -14,17 +14,17 @@ fn loop_return_values() {
         counter += 1;
 
         if counter == 10 {
-            break counter * 2;
+            counter * 2;
         }
     };
 
     println!("The result is {result}");
 }
 
-// Use label to break out of inner loop
+// Update to break out of all loops when count is 2
 fn inner_loop_break() {
     let mut count = 0;
-    'counting_up: loop {
+    loop {
         println!("count = {count}");
         let mut remaining = 10;
 
@@ -34,7 +34,7 @@ fn inner_loop_break() {
                 break;
             }
             if count == 2 {
-                break 'counting_up;
+                break;
             }
             remaining -= 1;
         }
@@ -44,14 +44,11 @@ fn inner_loop_break() {
     println!("End count = {count}");
 }
 
+// Implement a while loop that counts down from 3
 fn while_loop() {
     let mut number = 3;
 
-    while number != 0 {
-        println!("{number}!");
-
-        number -= 1;
-    }
+    println!("{number}!");
 
     println!("LIFTOFF!!!");
 }
@@ -61,25 +58,19 @@ fn collection_while_loop() {
     let a = [10, 20, 30, 40, 50];
     let mut index = 0;
 
-    while index < 5 {
-        println!("the value is: {}", a[index]);
-
-        index += 1;
-    }
+    println!("the value is: {}", a[index]);
 }
 
+// Loop through the collection using a for loop
 fn collection_for_loop() {
     let a = [10, 20, 30, 40, 50];
 
-    for element in a {
-        println!("the value is: {element}");
-    }
+    println!("the value is: {}");
 }
 
+// Loop from 4 to 1 using a range
 fn range_loop() {
-    for number in (1..4).rev() {
-        println!("{number}!");
-    }
+    println!("{number}!");
 
     println!("LIFTOFF!!!");
 }
