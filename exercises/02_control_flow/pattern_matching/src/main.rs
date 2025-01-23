@@ -1,11 +1,12 @@
 #[derive(Debug)] // so we can inspect the state in a minute
+                 // Define an enum representing U.S. states
 enum UsState {
     Alabama,
     Alaska,
     // --snip--
 }
 
-// Bind UsState values to Quarter
+// Modify the `Coin` enum to associate a `UsState` value with the `Quarter` variant
 enum Coin {
     Penny,
     Nickel,
@@ -13,91 +14,108 @@ enum Coin {
     Quarter,
 }
 
-fn main() {
-    pattern_matching_1();
-    pattern_matching_2();
-    pattern_matching_3();
-    pattern_matching_4();
-    pattern_matching_5();
-    pattern_matching_6();
-    pattern_matching_7();
-    pattern_matching_8();
-    pattern_matching_9();
-    pattern_matching_10();
-}
-
+// Complete the `value_in_cents` function to handle the requirements
 fn pattern_matching_1() {
     value_in_cents(Coin::Penny);
 }
 
 fn value_in_cents(coin: Coin) -> u8 {
     match coin {
-        // Print "Lucky penny!" as well
-        Coin::Penny => 1,
+        // Print "Lucky penny!" when `Coin::Penny` is matched
+        Coin::Penny => 1, // Add the necessary code here
+
         Coin::Nickel => 5,
         Coin::Dime => 10,
-        // Bind the quarter value to a variable
-        Coin::Quarter => 25,
+
+        // Print the state when `Coin::Quarter` is matched
+        Coin::Quarter => 25, // Bind the state and complete the code here
     }
 }
 
+// Fix the `plus_one` match expression to handle all possible variants of `Option<i32>`
 fn pattern_matching_2() {
     let five = Some(5);
     let six = plus_one(five);
     let none = plus_one(None);
 }
 
-// Fix the following match expression
 fn plus_one(x: Option<i32>) -> Option<i32> {
     match x {
-        Some(i) => Some(i + 1),
+        Some(i) => Some(i + 1), // Handle the `Some` variant
+                                // Add handling for the `None` variant
     }
 }
 
-// Add a catch all pattern using move_player
-// move_player should take the value as an argument
+// Add a catch-all pattern to handle all other dice rolls
 fn pattern_matching_3() {
     let dice_roll = 9;
+
     match dice_roll {
-        3 => add_fancy_hat(),
-        7 => remove_fancy_hat(),
+        3 => add_fancy_hat(), // Specific case: dice roll is 3
+        7 => remove_fancy_hat(), // Specific case: dice roll is 7
+                               // Add a catch-all pattern here to call `move_player`
     }
 }
-fn move_player(num_spaces: u8) {}
 
-// Add a catch all pattern using reroll
+// Add a catch-all pattern to handle all other dice rolls with `reroll``
 fn pattern_matching_4() {
     let dice_roll = 9;
+
     match dice_roll {
-        3 => add_fancy_hat(),
-        7 => remove_fancy_hat(),
+        3 => add_fancy_hat(), // Specific case: dice roll is 3
+        7 => remove_fancy_hat(), // Specific case: dice roll is 7
+                               // Add a catch-all pattern here to call `reroll`
     }
 }
-fn reroll() {}
+fn reroll() {
+    println!("Rerolling the dice!");
+}
 
-// Fix the error
-// Don't run any code if nothing matches
+// Fix the error by ensuring all cases are handled
 fn pattern_matching_5() {
     let dice_roll = 9;
+
     match dice_roll {
-        3 => add_fancy_hat(),
-        7 => remove_fancy_hat(),
+        3 => add_fancy_hat(), // Specific case: dice roll is 3
+        7 => remove_fancy_hat(), // Specific case: dice roll is 7
+                               // Add a catch-all pattern here to do nothing for unmatched cases
     }
 }
 
-fn add_fancy_hat() {}
-fn remove_fancy_hat() {}
+fn add_fancy_hat() {
+    println!("Adding a fancy hat!");
+}
 
-// Fix the error
-fn pattern_matching_6() {
+fn remove_fancy_hat() {
+    println!("Removing a fancy hat!");
+}
+
+fn move_player(num_spaces: u8) {
+    println!("Moving player by {} spaces!", num_spaces);
+}
+
+// Fix the error by ensuring `opt` can still be used after the `match` block
+fn pattern_matching_6_a() {
     let opt: Option<String> = Some(String::from("Hello world"));
 
     match opt {
-        Some(s) => println!("Some: {}", s),
+        Some(s) => println!("Some: {}", s), // This moves `s` out of `opt`
         None => println!("None!"),
     };
 
-    println!("{:?}", opt);
+    println!("{:?}", opt); // This causes an error because `opt` was moved
+}
+
+// Fix the error so that the value inside `opt` is not consumed
+fn pattern_matching_6_b() {
+    let opt: Option<String> = Some(String::from("Hello world"));
+
+    match opt {
+        Some(s) => println!("Some: {}", s), // This consumes `s`, making `opt` unusable
+        None => println!("None!"),
+    };
+
+    println!("{:?}", opt); // This should still print the value inside `opt`
 }
 
 enum Location {
@@ -117,7 +135,7 @@ fn pattern_matching_7() {
     println!("{n}");
 }
 
-// Why does the following not compile?
+// Fix the error by avoiding Moves in Pattern Matching
 enum Either {
     Left(usize),
     Right(String),
@@ -132,7 +150,7 @@ fn pattern_matching_8() {
     println!("{x:?} {value}");
 }
 
-// Update the following to use a match expression
+// Refactor this function to use a match expression
 fn decr_twice(n: u32) -> Option<u32> {
     if n == 0 {
         None
@@ -143,20 +161,43 @@ fn decr_twice(n: u32) -> Option<u32> {
     }
 }
 
-// Write more concise using IF expressions
+// Simplify the match expression using if let
 fn pattern_matching_9() {
     let config_max = Some(3u8);
     match config_max {
         Some(max) => println!("The maximum is configured to be {max}"),
-        _ => (),
+        _ => (), // Do nothing for all other cases
     }
 }
 
-// Write more concise using IF expressions
-fn pattern_matching_10() {
+// Simplify the match expression using if let and else
+fn pattern_matching_10(coin: Coin) {
     let mut count = 0;
     match coin {
         Coin::Quarter(state) => println!("State quarter from {state:?}!"),
-        _ => count += 1,
+        _ => count += 1, // Increment count for all other coin types
     }
+
+    println!("Count: {count}");
+}
+
+fn main() {
+    // Execute the function to see if your changes worked!
+    pattern_matching_1();
+    pattern_matching_2();
+    pattern_matching_3();
+    pattern_matching_4();
+    pattern_matching_5();
+    pattern_matching_6_a();
+    pattern_matching_6_b();
+    pattern_matching_7();
+    pattern_matching_8();
+    pattern_matching_9();
+    pattern_matching_10();
+
+    assert_eq!(decr_twice(0), None);
+    assert_eq!(decr_twice(1), None);
+    assert_eq!(decr_twice(2), Some(0));
+    assert_eq!(decr_twice(5), Some(3));
+    println!("All tests passed!");
 }
