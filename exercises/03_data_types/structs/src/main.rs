@@ -1,7 +1,102 @@
-// Create a user struct
-// Fields: active, username, email, sign_in_count
+// Define the `User` struct with the specified fields.
+// active: A boolean indicating if the user is active.
+// username: A String representing the user’s username.
+// email: A String representing the user’s email.
+// sign_in_count: A u64 representing how many times the user has signed in.
+
+fn struct_1() {
+    // Create an instance of User.
+    let mut user1 = ??; // Hint: Use the `User` struct and provide initial values for all fields.
+
+    // Change the email to "anotheremail@example.com".
+    ??; // Hint: Update the `email` field of `user1`.
+}
+
+fn struct_2() {
+    let user1 = User {
+        email: String::from("someone@example.com"),
+        username: String::from("someusername123"),
+        active: true,
+        sign_in_count: 1,
+    };
+
+    // Create an instance of User with the same values as user1,
+    // but a different email address ("another@example.com").
+    let user2 = ??; // Hint: Use the values from `user1` where possible.
+}
+
+fn struct_3() {
+    let user1 = User {
+        email: String::from("someone@example.com"),
+        username: String::from("someusername123"),
+        active: true,
+        sign_in_count: 1,
+    };
+
+    // Create an instance of User by spreading user1 values.
+    let user3 = ??; // Hint: Use `..user1` to reuse fields from `user1`.
+}
+
+
+// Implement a `build_user` function.
+fn struct_4() {
+    // Use the builder function to create a `User` instance.
+    // String::from("someone@example.com")
+    // String::from("someusername123")
+    let user = ??;
+
+    println!("User: {:?}", user);
+}
+
+
+// Define a unit-like struct called `AlwaysEqual`.
+
+fn struct_5() {
+    // Create an instance of AlwaysEqual.
+    let subject = ??; // Hint: Use the name of the unit-like struct to create an instance.
+}
+
+// Create a valid instance of User.
+struct User {
+    active: bool,
+    username: &str, // Fix this field to use `String`.
+    email: &str,    // Fix this field to use `String`.
+    sign_in_count: u64,
+}
+
+fn struct_6() {
+    let user6 = User {
+        active: true,
+        username: "someusername123", // Fix this to use `String`.
+        email: "someone@example.com", // Fix this to use `String`.
+        sign_in_count: 1,
+    };
+}
+
+
+// Define two tuple structs: `Color` and `Point`.
+// Each should have three `i32` fields.
+
+fn tuple_struct_1() {
+    // Create an instance of the `Color` tuple struct.
+    let black = ??; // Hint: Use `Color` and provide three values.
+
+    // Create an instance of the `Point` tuple struct.
+    let origin = ??; // Hint: Use `Point` and provide three values.
+}
+
+struct Color(i32, i32, i32);
+
+fn tuple_struct_2() {
+    // Create an instance of the `Color` tuple struct.
+    let black = ??; // Hint: Use `Color` and provide three values.
+
+    // Destructure the `Color` instance into individual variables.
+    let (x, y, z) = ??; // Hint: Use pattern matching to destructure.
+}
 
 fn main() {
+    // Execute the function to see if your changes worked!
     struct_1();
     struct_2();
     struct_3();
@@ -11,70 +106,4 @@ fn main() {
 
     tuple_struct_1();
     tuple_struct_2();
-}
-
-fn struct_1() {
-    // Create an instance of User
-    // let mut user1 = ??
-
-    // Change the email to a different string
-    // anotheremail@example.com
-}
-
-fn struct_2() {
-    // Create an instance of User with the same values as user1
-    // let user2 = ??
-}
-
-fn struct_3() {
-    // Create an instance of User by spreading user1 values
-    // let user3 = ??
-}
-
-fn struct_4() {
-    // Create a builder function for User
-    build_user(
-        String::from("someone@example.com"),
-        String::from("someusername123"),
-    )
-}
-
-fn build_user(email: String, username: String) -> User {}
-
-// Create a unit-like struct AlwaysEqual
-
-fn struct_5() {
-    let subject = AlwaysEqual;
-}
-
-// Fix the following
-struct User {
-    active: bool,
-    username: &str,
-    email: &str,
-    sign_in_count: u64,
-}
-
-fn struct_6() {
-    let user6 = User {
-        active: true,
-        username: "someusername123",
-        email: "someone@example.com",
-        sign_in_count: 1,
-    };
-}
-
-// Create a struct tuple called Color and Point (i32)
-
-fn tuple_struct_1() {
-    // Create instances of Color and Point struct tuples
-    // let black = ??
-    // let origin = ??
-}
-
-fn tuple_struct_2() {
-    // Create instance of Color using struct tuple
-    // let black = ??
-
-    // Add each of the Color values to their own variable
 }

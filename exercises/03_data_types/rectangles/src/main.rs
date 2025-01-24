@@ -1,4 +1,4 @@
-// Update the following to use a Struct
+// Refactor code that calculates the area of a rectangle from using separate variables to using a Rectangle struct.
 fn main() {
     let width1 = 30;
     let height1 = 50;
