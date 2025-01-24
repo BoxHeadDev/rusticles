@@ -60,18 +60,11 @@ fn shadowing_3() {
     println!("{x}"); // What value will this print? Fix or explain!
 }
 
-// Solution 1: Correct the type mismatch by assigning a value of the same type
-fn shadowing_4_a() {
-    let mut x: u32 = 1; // Declare `x` as a u32
-    x = 2; // Assign another value of type u32
-    println!("{x}"); // Prints the updated value of `x` (2)
-}
-
-// Solution 2: Use shadowing to reuse the variable name with a new type
-fn shadowing_4_b() {
-    let x: u32 = 1; // Declare `x` as a u32
-    let x = "Hello world"; // Shadow `x` with a new variable of type &str
-    println!("{x}"); // Prints "Hello world"
+// Fix or explain the behaviour of the code
+fn shadowing_4() {
+    let mut x: u32 = 1;
+    x = "Hello world";;
+    println!("{x}"); // What value will this print? Fix or explain!
 }
 
 fn main() {
