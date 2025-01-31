@@ -19,17 +19,17 @@ fn variables_2() {
 // Solution: Add a type annotation to the constant
 fn constants_1() {
     const THREE_HOURS_IN_SECONDS: u32 = 60 * 60 * 3; // Annotate the constant with type `u32`
-    println!(THREE_HOURS_IN_SECONDS); // Prints the value of the constant
+    println!("{THREE_HOURS_IN_SECONDS}"); // Prints the value of the constant
 }
 // Context: In Rust, constants are defined using the const keyword, and their types must always be explicitly annotated. Unlike variables, constants are evaluated at compile time and cannot be changed during the program's execution. In this exercise, your task is to add the correct type annotation to a constant to fix the compilation error.
 
 // Solution: Remove mutability and use separate constants for different values
 fn constants_2() {
     const TOTAL: u32 = 50; // Declare a constant with an explicit type annotation
-    println!(TOTAL); // Prints the value of TOTAL
+    println!("{TOTAL}"); // Prints the value of TOTAL
 
     const NEW_TOTAL: u32 = 100; // Use a new constant for the updated value
-    println!(NEW_TOTAL); // Prints the value of NEW_TOTAL
+    println!("{NEW_TOTAL}"); // Prints the value of NEW_TOTAL
 }
 // Context: In Rust, constants declared with the const keyword are always immutable. Unlike variables marked with let, constants cannot be changed after they are declared. Additionally, constants do not support the mut keyword, and attempting to modify them will result in a compilation error.
 
@@ -104,4 +104,6 @@ fn main() {
     shadowing_1();
     shadowing_2();
     shadowing_3();
+    shadowing_4_a();
+    shadowing_4_b();
 }

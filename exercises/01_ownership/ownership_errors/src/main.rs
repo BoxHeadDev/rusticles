@@ -65,7 +65,7 @@ fn get_first(name: &(String, String)) -> &String {
 // Fix the code to resolve conflicting borrows in the array.
 // The goal is to safely access and modify different elements of the array.
 fn ownership_error5() {
-    let mut a = [0, 1, 2, 3];
+    let a = [0, 1, 2, 3];
     let x = &mut a[1]; // Mutable borrow of the second element.
     let y = &a[2]; // ERROR: Immutable borrow of the third element conflicts with the mutable borrow.
     *x += *y; // Attempt to modify the second element using the immutable third element.
@@ -122,6 +122,18 @@ fn main() {
     println!("{}", result);
 
     ownership_error1();
+
+    let mut dst = vec![
+        String::from("apple"),
+        String::from("banana"),
+        String::from("cherry"),
+    ];
+
+    let src = vec![
+        String::from("kiwi"),
+        String::from("pineapple"),
+        String::from("grape"),
+    ];
 
     add_big_strings();
 

@@ -34,32 +34,32 @@ fn enum_2() {
 // Context: Enums in Rust can be used in combination with structs to create more expressive and structured data types. For example, you can represent an IP address as a struct that contains both the kind of IP (V4 or V6) and the actual address as a String.
 
 // Solution:
-enum IpAddr {
+enum IpAddr2 {
     V4(String), // The `V4` variant holds an IPv4 address as a `String`.
     V6(String), // The `V6` variant holds an IPv6 address as a `String`.
 }
 
 fn enum_3() {
     // Create an instance of the `V4` variant with an IPv4 address.
-    let home = IpAddr::V4(String::from("127.0.0.1"));
+    let home = IpAddr2::V4(String::from("127.0.0.1"));
 
     // Create an instance of the `V6` variant with an IPv6 address.
-    let loopback = IpAddr::V6(String::from("::1"));
+    let loopback = IpAddr2::V6(String::from("::1"));
 }
 // Context: Enums in Rust can store data directly within their variants, making them more expressive and eliminating the need for additional structs in some cases. For example, an IP address can be represented as an enum where each variant (V4 or V6) directly holds the address as a String.
 
 // Solution:
-enum IpAddr {
+enum IpAddr3 {
     V4(u8, u8, u8, u8), // The `V4` variant now holds four `u8` values for an IPv4 address.
     V6(String),         // The `V6` variant remains a `String` for an IPv6 address.
 }
 
 fn enum_4() {
     // Create an instance of the `V4` variant with four `u8` values.
-    let home = IpAddr::V4(127, 0, 0, 1);
+    let home = IpAddr3::V4(127, 0, 0, 1);
 
     // Create an instance of the `V6` variant with an IPv6 address as a `String`.
-    let loopback = IpAddr::V6(String::from("::1"));
+    let loopback = IpAddr3::V6(String::from("::1"));
 }
 // Context: Enums in Rust can hold different types of data in each variant, enabling you to model real-world data concisely. For example, an IPv4 address can be represented by four u8 values, while an IPv6 address might still be best represented as a single String. This allows you to differentiate and store the most appropriate data for each case.
 
@@ -76,8 +76,17 @@ impl Message {
     fn call(&self) {
         // Match on the enum to handle the `Write` variant.
         match self {
+            Message::Quit => {
+                println!("Received Quit message.");
+            }
+            Message::Move { x, y } => {
+                println!("Move to coordinates: ({}, {})", x, y);
+            }
             Message::Write(text) => {
                 println!("Message: {}", text); // Print the message stored in the `Write` variant.
+            }
+            Message::ChangeColor(r, g, b) => {
+                println!("Change color to RGB({}, {}, {})", r, g, b);
             }
         }
     }

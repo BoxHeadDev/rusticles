@@ -152,6 +152,7 @@ fn pattern_matching_7() {
 // Context: The match expression evaluates patterns in the order they are written. The third pattern (Location::Range(0, _) => 0) is unreachable. The second pattern already matches all Location::Range variants, so it is impossible for the third pattern to ever be executed. Rust's compiler should provide a warning about unreachable code here.
 
 // Solution: use borrowing to avoid moving the value of x
+#[derive(Debug)]
 enum Either {
     Left(usize),
     Right(String),
@@ -216,7 +217,9 @@ fn main() {
     pattern_matching_7();
     pattern_matching_8();
     pattern_matching_9();
-    pattern_matching_10();
+
+    // pattern_matching_10(Coin::Dime);
+    pattern_matching_10(Coin::Quarter(UsState::Alaska));
 
     assert_eq!(decr_twice(0), None);
     assert_eq!(decr_twice(1), None);

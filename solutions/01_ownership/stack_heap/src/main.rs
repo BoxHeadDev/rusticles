@@ -61,11 +61,11 @@ fn add_suffix(mut s: String) -> String {
 fn ownership_5() {
     let second = String::from("Ferris"); // Create a new `String`.
     let second_clone = second.clone(); // Clone `second` to preserve the original value.
-    let whole = add_suffix(second_clone); // Pass the cloned value to `add_suffix`.
+    let whole = add_suffix2(second_clone); // Pass the cloned value to `add_suffix`.
     println!("{whole}, originally {second}"); // Safely print both the modified and original strings.
 }
 
-fn add_suffix(mut s: String) -> String {
+fn add_suffix2(mut s: String) -> String {
     s.push_str(" Rustacean"); // Append a suffix to the string.
     s // Return the modified string.
 }
@@ -74,12 +74,12 @@ fn add_suffix(mut s: String) -> String {
 // Solution:
 fn ownership_6() {
     let s = String::from("hello"); // Create a new `String`, owned by `s`.
-    let s2 = add_suffix(s); // Ownership of `s` is moved to `add_suffix`.
-                            // `s` is no longer valid here; `s2` now owns the modified string.
+    let s2 = add_suffix3(s); // Ownership of `s` is moved to `add_suffix`.
+                             // `s` is no longer valid here; `s2` now owns the modified string.
     println!("{}", s2); // Prints "hello world".
 }
 
-fn add_suffix(mut s: String) -> String {
+fn add_suffix3(mut s: String) -> String {
     s.push_str(" world"); // Modify the string by appending " world".
     s // Return the modified string, transferring ownership back to the caller.
 }
@@ -148,21 +148,21 @@ fn ownership_9() {
     let b = Box::new(0); // Create a new Box containing 0.
     let b2 = b; // Ownership of the Box is moved to `b2`.
     println!("{}", b2); // Use `b2`, which now owns the Box.
-    move_a_box(b2); // Transfer ownership of `b2` to the function.
+    move_a_box2(b2); // Transfer ownership of `b2` to the function.
 
     // Solution 2: Avoid Transferring Ownership to b2
     let b = Box::new(0); // Create a new Box containing 0.
     println!("{}", b); // Use `b` before transferring ownership.
-    move_a_box(b); // Transfer ownership of `b` directly to the function.
+    move_a_box2(b); // Transfer ownership of `b` directly to the function.
 
     // Solution 3: Clone the Box if You Need Both b and b2
     let b = Box::new(0); // Create a new Box containing 0.
     let b2 = b.clone(); // Clone the Box to preserve the original value in `b`.
     println!("{}", b); // Use the original Box.
-    move_a_box(b2); // Transfer ownership of the cloned Box to the function.
+    move_a_box2(b2); // Transfer ownership of the cloned Box to the function.
 }
 
-fn move_a_box(b: Box<i32>) {
+fn move_a_box2(b: Box<i32>) {
     println!("Moved value: {}", b); // Ownership of the Box is taken here.
 }
 // Context: The original code transfers ownership of a Box from b to b2, but it attempts to use b afterward. This is not allowed in Rust because b is no longer valid after the ownership is moved to b2.
@@ -172,21 +172,21 @@ fn ownership_10() {
     // Solution 1: Use a New Variable Instead of b2
     let b = Box::new(0); // Create a new Box containing 0.
     let b2 = b.clone(); // Clone the Box to preserve the original value in `b`.
-    move_a_box(b2); // Transfer ownership of the cloned Box to the function.
+    move_a_box3(b2); // Transfer ownership of the cloned Box to the function.
     println!("Original Box value: {}", b); // Safely use `b` since it wasn’t moved.
 
     // Solution 2: Avoid Reassigning Ownership to b2let b = Box::new(0); // Create a new Box containing 0.
-    move_a_box(b); // Transfer ownership of `b` to the function.
-                   // `b` is no longer valid here, so no need to assign it to `b2`.
+    move_a_box3(b); // Transfer ownership of `b` to the function.
+                    // `b` is no longer valid here, so no need to assign it to `b2`.
 
     // Solution 3: Reassign Ownership Without Calling move_a_box Directly
     let b = Box::new(0); // Create a new Box containing 0.
     let b2 = b; // Reassign ownership of `b` to `b2`.
     println!("Reassigned Box value: {}", b2); // Safely use `b2`.
-    move_a_box(b2); // Now transfer ownership of `b2` to the function.
+    move_a_box3(b2); // Now transfer ownership of `b2` to the function.
 }
 
-fn move_a_box(b: Box<i32>) {
+fn move_a_box3(b: Box<i32>) {
     println!("Moved value: {}", b); // Ownership of the Box is taken here.
 }
 // Context: The original code transfers ownership of a Box from b to the move_a_box function, then attempts to use b again to assign it to b2. This is not allowed because b is no longer valid after its ownership has been moved.
@@ -195,23 +195,23 @@ fn move_a_box(b: Box<i32>) {
 fn ownership_11() {
     // Solution 1:
     let b = Box::new(0); // Create a new Box containing 0.
-    move_a_box(b); // Transfer ownership of `b` to the function.
-                   // No attempt to use `b` here, as it is no longer valid.
+    move_a_box4(b); // Transfer ownership of `b` to the function.
+                    // No attempt to use `b` here, as it is no longer valid.
 
     // Solution 2: Clone b Before Transferring Ownership
     let b = Box::new(0); // Create a new Box containing 0.
     let b_clone = b.clone(); // Clone the Box to preserve the original value.
-    move_a_box(b); // Transfer ownership of the original `b` to the function.
+    move_a_box4(b); // Transfer ownership of the original `b` to the function.
     println!("{}", b_clone); // Safely use the cloned Box.
 
     // Solution 3: Reassign Ownership to a New Variable
     let b = Box::new(0); // Create a new Box containing 0.
     let b2 = b; // Move ownership of `b` to `b2`.
-    move_a_box(b2); // Transfer ownership of `b2` to the function.
-                    // `b` is not used here, as ownership has been moved.
+    move_a_box4(b2); // Transfer ownership of `b2` to the function.
+                     // `b` is not used here, as ownership has been moved.
 }
 
-fn move_a_box(b: Box<i32>) {
+fn move_a_box4(b: Box<i32>) {
     println!("Moved value: {}", b); // Ownership of the Box is taken here.
 }
 // Context: The original code transfers ownership of a Box from b to the move_a_box function, then attempts to use b afterward. This is not allowed because b is no longer valid after its ownership has been moved.

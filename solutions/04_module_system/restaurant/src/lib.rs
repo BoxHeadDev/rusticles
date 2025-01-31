@@ -2,13 +2,13 @@
 use std::fmt;
 use std::io;
 
-fn function1() -> fmt::Result {
-    // --snip--
-}
+// fn function1() -> fmt::Result {
+//     // --snip--
+// }
 
-fn function2() -> io::Result<()> {
-    // --snip--
-}
+// fn function2() -> io::Result<()> {
+//     // --snip--
+// }
 
 // TO DO: Define modules and function signatures
 // crate
@@ -22,9 +22,8 @@ fn function2() -> io::Result<()> {
 //          └── take_payment
 
 mod front_of_house {
-    mod hosting {
-        // pub fn add_to_waitlist() {}
-        fn add_to_waitlist() {}
+    pub mod hosting {
+        pub fn add_to_waitlist() {}
 
         fn seat_at_table() {}
     }
@@ -39,12 +38,15 @@ mod front_of_house {
 }
 
 // TO DO: Why does the following not work?
-use crate::front_of_house::hosting;
+// use crate::front_of_house::hosting;
 
 mod customer {
     pub fn eat_at_restaurant() {
-        // This is in customer scope not the top level scope
-        hosting::add_to_waitlist();
+        // Error: This is in customer scope not the top level scope
+        // hosting::add_to_waitlist();
+
+        // Instead of relying on use, directly reference the full absolute path
+        crate::front_of_house::hosting::add_to_waitlist();
     }
 }
 
@@ -62,7 +64,7 @@ mod back_of_house {
 
     pub struct Breakfast {
         pub toast: String,
-        seasonal_fruit: String,
+        pub seasonal_fruit: String,
     }
 
     impl Breakfast {
@@ -83,7 +85,7 @@ mod back_of_house {
 use crate::front_of_house::hosting; // bring path into scope
 
 // TO DO: Make hosting available to external code
-pub use crate::front_of_house::hosting;
+// pub use crate::front_of_house::hosting;
 
 pub fn eat_at_restaurant() {
     // TO DO: call add_to_waitlist with an absolute and relative path

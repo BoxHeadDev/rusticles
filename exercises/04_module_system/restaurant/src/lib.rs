@@ -1,4 +1,4 @@
-// TO DO: Fix the following
+// TO DO: Fix the following so that both Result types can be used without clashing
 use std::fmt::Result;
 use std::io::Result;
 

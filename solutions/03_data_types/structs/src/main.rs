@@ -1,3 +1,4 @@
+#[derive(Debug)]
 struct User {
     active: bool,       // Indicates if the user is active.
     username: String,   // The user's username.
@@ -84,7 +85,7 @@ fn struct_5() {
 }
 // Context: Unit-like structs in Rust are structs without any fields. They are often used for specific purposes, such as marker types or when the struct itself conveys meaning without needing data.
 
-struct User {
+struct User2 {
     active: bool,
     username: String, // Use `String` for ownership.
     email: String,    // Use `String` for ownership.
@@ -93,7 +94,7 @@ struct User {
 
 fn struct_6() {
     // Create a valid instance of User.
-    let user6 = User {
+    let user6 = User2 {
         active: true,
         username: String::from("someusername123"), // Convert `&str` to `String`.
         email: String::from("someone@example.com"), // Convert `&str` to `String`.
@@ -115,14 +116,14 @@ fn tuple_struct_1() {
 }
 // Context: Tuple structs in Rust are a hybrid between tuples and traditional structs. They group related values together but use positional fields instead of named ones. Tuple structs are useful when you want a lightweight structure with less verbosity than named structs.
 
-struct Color(i32, i32, i32);
+struct Color2(i32, i32, i32);
 
 fn tuple_struct_2() {
     // Create an instance of the `Color` tuple struct.
-    let black = Color(0, 0, 0); // Represents black in RGB.
+    let black = Color2(0, 0, 0); // Represents black in RGB.
 
     // Destructure the `Color` instance into individual variables.
-    let Color(x, y, z) = black;
+    let Color2(x, y, z) = black;
 
     println!("x: {x}, y: {y}, z: {z}");
 }

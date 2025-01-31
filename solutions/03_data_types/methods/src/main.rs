@@ -11,7 +11,7 @@ impl Rectangle {
     }
 
     // Method to check if the width is greater than 0.
-    fn width(&self) -> bool {
+    fn has_width(&self) -> bool {
         self.width > 0
     }
 
@@ -58,8 +58,8 @@ fn struct_2() {
         height: 50,
     };
 
-    if rect1.has_nonzero_width() {
-        println!("The rectangle has a nonzero width; it is {}", rect1.width);
+    if rect1.has_width() {
+        println!("The rectangle has a width; it is {}", rect1.width);
     }
 }
 // Context: Structs can have methods that encapsulate functionality related to their fields. In Rust, using methods instead of accessing fields directly or relying on standalone functions makes the code more concise, modular, and intuitive.
@@ -137,7 +137,7 @@ fn struct_6() {
         height: 1,
     };
 
-    let max_rect = rect.max(other_rect); // `rect` and `other_rect` are consumed here.
+    let max_rect = rect.max(&other_rect); // `rect` and `other_rect` are consumed here.
 
     // `rect` is no longer usable here because it was moved into the `max` method.
     // Uncommenting the line below will cause a compile error.
@@ -222,12 +222,12 @@ fn struct_11() {
 // Context: In Rust, methods that modify the state of a struct should use mutable references (&mut self) instead of taking ownership (self). This allows the caller to retain ownership of the struct while enabling in-place modifications.
 
 // Solution:
-struct Point {
+struct Point2 {
     x: i32,
     y: i32,
 }
 
-impl Point {
+impl Point2 {
     // This method returns a mutable reference to `x`.
     fn get_x(&mut self) -> &mut i32 {
         &mut self.x
@@ -235,7 +235,7 @@ impl Point {
 }
 
 fn struct_12() {
-    let mut p = Point { x: 1, y: 2 };
+    let mut p = Point2 { x: 1, y: 2 };
 
     {
         let x = p.get_x(); // Mutable borrow of `p` for `x`

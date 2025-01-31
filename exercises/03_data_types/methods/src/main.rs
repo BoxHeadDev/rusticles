@@ -9,7 +9,7 @@ fn area(rectangle: &Rectangle) -> u32 {
     rectangle.width * rectangle.height
 }
 
-fn width(rectangle: &Rectangle) -> bool {
+fn has_width(rectangle: &Rectangle) -> bool {
     rectangle.width > 0
 }
 
@@ -50,7 +50,7 @@ fn struct_2() {
         height: 50,
     };
 
-    if width(&rect1) {
+    if has_width(&rect1) {
         println!("The rectangle has a nonzero width; it is {}", rect1.width);
     }
 }
