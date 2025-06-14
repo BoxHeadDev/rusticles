@@ -1,6 +1,0 @@
-[package]
-name = "if_expressions_exercise"
-version = "0.1.0"
-edition = "2021"
-
-[dependencies]

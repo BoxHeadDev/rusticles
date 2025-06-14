@@ -1,6 +1,0 @@
-[package]
-name = "borrowing_solution"
-version = "0.1.0"
-edition = "2021"
-
-[dependencies]
