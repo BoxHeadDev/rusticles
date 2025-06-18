@@ -599,61 +599,61 @@ like better.
 What do you think is the more commonly used pattern under Rust developers?"""
 
 [[exercises]]
-name = "vec3"
+name = "vecs3"
 dir = "05_vecs"
 test = false
 hint = ""
 
 [[exercises]]
-name = "vec4"
+name = "vecs4"
 dir = "05_vecs"
 test = false
 hint = ""
 
 [[exercises]]
-name = "vec5"
+name = "vecs5"
 dir = "05_vecs"
 test = false
 hint = ""
 
 [[exercises]]
-name = "vec6"
+name = "vecs6"
 dir = "05_vecs"
 test = false
 hint = ""
 
 [[exercises]]
-name = "vec7"
+name = "vecs7"
 dir = "05_vecs"
 test = false
 hint = ""
 
 [[exercises]]
-name = "vec8"
+name = "vecs8"
 dir = "05_vecs"
 test = false
 hint = ""
 
 [[exercises]]
-name = "vec9"
+name = "vecs9"
 dir = "05_vecs"
 test = false
 hint = ""
 
 [[exercises]]
-name = "vec10"
+name = "vecs10"
 dir = "05_vecs"
 test = false
 hint = ""
 
 [[exercises]]
-name = "vec11"
+name = "vecs11"
 dir = "05_vecs"
 test = false
 hint = ""
 
 [[exercises]]
-name = "vec12"
+name = "vecs12"
 dir = "05_vecs"
 test = false
 hint = ""
@@ -1198,31 +1198,31 @@ because "blue" is `&str`, not `String`."""
 
 [[exercises]]
 name = "strings5"
-dir = "09_stings"
+dir = "09_strings"
 test = false
 hint = ""
 
 [[exercises]]
 name = "strings6"
-dir = "09_stings"
+dir = "09_strings"
 test = false
 hint = ""
 
 [[exercises]]
 name = "strings7"
-dir = "09_stings"
+dir = "09_strings"
 test = false
 hint = ""
 
 [[exercises]]
 name = "strings8"
-dir = "09_stings"
+dir = "09_strings"
 test = false
 hint = ""
 
 [[exercises]]
 name = "strings9"
-dir = "09_stings"
+dir = "09_strings"
 test = false
 hint = ""
 
