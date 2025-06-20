@@ -280,6 +280,30 @@ dir = "02_functions"
 test = false
 hint = ""
 
+[[exercises]]
+name = "closures1"
+dir = "02_functions"
+test = false
+hint = ""
+
+[[exercises]]
+name = "closures2"
+dir = "02_functions"
+test = false
+hint = ""
+
+[[exercises]]
+name = "closures3"
+dir = "02_functions"
+test = false
+hint = ""
+
+[[exercises]]
+name = "closures4"
+dir = "02_functions"
+test = false
+hint = ""
+
 # IF
 
 [[exercises]]
@@ -328,6 +352,12 @@ hint = ""
 
 [[exercises]]
 name = "if6"
+dir = "03_if"
+test = false
+hint = ""
+
+[[exercises]]
+name = "if7"
 dir = "03_if"
 test = false
 hint = ""
@@ -1585,6 +1615,78 @@ dir = "16_lifetimes"
 test = false
 hint = """Let the compiler guide you :)"""
 
+[[exercises]]
+name = "lifetimes4"
+dir = "16_lifetimes"
+test = false
+hint = ""
+
+[[exercises]]
+name = "lifetimes5"
+dir = "16_lifetimes"
+test = false
+hint = ""
+
+[[exercises]]
+name = "lifetimes6"
+dir = "16_lifetimes"
+test = false
+hint = ""
+
+[[exercises]]
+name = "lifetimes7"
+dir = "16_lifetimes"
+test = false
+hint = ""
+
+[[exercises]]
+name = "lifetimes8"
+dir = "16_lifetimes"
+test = false
+hint = ""
+
+[[exercises]]
+name = "lifetimes9"
+dir = "16_lifetimes"
+test = false
+hint = ""
+
+[[exercises]]
+name = "lifetimes10"
+dir = "16_lifetimes"
+test = false
+hint = ""
+
+[[exercises]]
+name = "lifetimes11"
+dir = "16_lifetimes"
+test = false
+hint = ""
+
+[[exercises]]
+name = "lifetimes12"
+dir = "16_lifetimes"
+test = false
+hint = ""
+
+[[exercises]]
+name = "lifetimes13"
+dir = "16_lifetimes"
+test = false
+hint = ""
+
+[[exercises]]
+name = "lifetimes14"
+dir = "16_lifetimes"
+test = false
+hint = ""
+
+[[exercises]]
+name = "lifetimes15"
+dir = "16_lifetimes"
+test = false
+hint = ""
+
 # TESTS
 
 [[exercises]]
@@ -1619,6 +1721,46 @@ To handle that, you need to add a special attribute to the test function.
 
 You can refer to the docs:
 https://doc.rust-lang.org/book/ch11-01-writing-tests.html#checking-for-panics-with-should_panic"""
+
+[[exercises]]
+name = "tests4"
+dir = "17_tests"
+hint = ""
+
+[[exercises]]
+name = "tests4"
+dir = "17_tests"
+hint = ""
+
+[[exercises]]
+name = "tests5"
+dir = "17_tests"
+hint = ""
+
+[[exercises]]
+name = "tests6"
+dir = "17_tests"
+hint = ""
+
+[[exercises]]
+name = "tests7"
+dir = "17_tests"
+hint = ""
+
+[[exercises]]
+name = "tests8"
+dir = "17_tests"
+hint = ""
+
+[[exercises]]
+name = "tests9"
+dir = "17_tests"
+hint = ""
+
+[[exercises]]
+name = "tests10"
+dir = "17_tests"
+hint = ""
 
 # STANDARD LIBRARY TYPES
 
@@ -1721,6 +1863,30 @@ dir = "18_iterators"
 test = false
 hint = ""
 
+[[exercises]]
+name = "iterators9"
+dir = "18_iterators"
+test = false
+hint = ""
+
+[[exercises]]
+name = "iterators10"
+dir = "18_iterators"
+test = false
+hint = ""
+
+[[exercises]]
+name = "iterators11"
+dir = "18_iterators"
+test = false
+hint = ""
+
+[[exercises]]
+name = "iterators12"
+dir = "18_iterators"
+test = false
+hint = ""
+
 
 # SMART POINTERS
 
@@ -1742,6 +1908,46 @@ Although the current list is one of integers (`i32`), feel free to change the
 definition and try other types!"""
 
 [[exercises]]
+name = "box2"
+dir = "19_smart_pointers"
+hint = ""
+
+[[exercises]]
+name = "box3"
+dir = "19_smart_pointers"
+hint = ""
+
+[[exercises]]
+name = "box4"
+dir = "19_smart_pointers"
+hint = ""
+
+[[exercises]]
+name = "box5"
+dir = "19_smart_pointers"
+hint = ""
+
+[[exercises]]
+name = "box6"
+dir = "19_smart_pointers"
+hint = ""
+
+[[exercises]]
+name = "box7"
+dir = "19_smart_pointers"
+hint = ""
+
+[[exercises]]
+name = "box8"
+dir = "19_smart_pointers"
+hint = ""
+
+[[exercises]]
+name = "box9"
+dir = "19_smart_pointers"
+hint = ""
+
+[[exercises]]
 name = "rc1"
 dir = "19_smart_pointers"
 hint = """
@@ -1757,6 +1963,16 @@ In the end, the `Sun` only has one reference again, to itself.
 See more at: https://doc.rust-lang.org/book/ch15-04-rc.html
 
 Unfortunately, Pluto is no longer considered a planet :("""
+
+[[exercises]]
+name = "rc2"
+dir = "19_smart_pointers"
+hint = ""
+
+[[exercises]]
+name = "rc3"
+dir = "19_smart_pointers"
+hint = ""
 
 [[exercises]]
 name = "arc1"
@@ -1784,6 +2000,51 @@ called.
 
 Check out the documentation of the `Cow` type:
 https://doc.rust-lang.org/std/borrow/enum.Cow.html"""
+
+[[exercises]]
+name = "rfc1"
+dir = "19_smart_pointers"
+hint = ""
+
+[[exercises]]
+name = "rfc2"
+dir = "19_smart_pointers"
+hint = ""
+
+[[exercises]]
+name = "rfc3"
+dir = "19_smart_pointers"
+hint = ""
+
+[[exercises]]
+name = "rfc4"
+dir = "19_smart_pointers"
+hint = ""
+
+[[exercises]]
+name = "rfc5"
+dir = "19_smart_pointers"
+hint = ""
+
+[[exercises]]
+name = "rfc6"
+dir = "19_smart_pointers"
+hint = ""
+
+[[exercises]]
+name = "rfc7"
+dir = "19_smart_pointers"
+hint = ""
+
+[[exercises]]
+name = "rfc8"
+dir = "19_smart_pointers"
+hint = ""
+
+[[exercises]]
+name = "rfc9"
+dir = "19_smart_pointers"
+hint = ""
 
 # THREADS
 
@@ -1840,6 +2101,200 @@ original sending end.
 
 Related section in The Book:
 https://doc.rust-lang.org/book/ch16-02-message-passing.html"""
+
+[[exercises]]
+name = "threads1"
+dir = "20_threads"
+hint = ""
+
+[[exercises]]
+name = "threads2"
+dir = "20_threads"
+hint = ""
+
+[[exercises]]
+name = "threads3"
+dir = "20_threads"
+hint = ""
+
+[[exercises]]
+name = "threads4"
+dir = "20_threads"
+hint = ""
+
+[[exercises]]
+name = "threads5"
+dir = "20_threads"
+hint = ""
+
+[[exercises]]
+name = "threads6"
+dir = "20_threads"
+hint = ""
+
+[[exercises]]
+name = "threads7"
+dir = "20_threads"
+hint = ""
+
+[[exercises]]
+name = "threads8"
+dir = "20_threads"
+hint = ""
+
+[[exercises]]
+name = "threads9"
+dir = "20_threads"
+hint = ""
+
+[[exercises]]
+name = "threads10"
+dir = "20_threads"
+hint = ""
+
+[[exercises]]
+name = "threads11"
+dir = "20_threads"
+hint = ""
+
+[[exercises]]
+name = "threads12"
+dir = "20_threads"
+hint = ""
+
+[[exercises]]
+name = "threads13"
+dir = "20_threads"
+hint = ""
+
+[[exercises]]
+name = "threads14"
+dir = "20_threads"
+hint = ""
+
+[[exercises]]
+name = "threads15"
+dir = "20_threads"
+hint = ""
+
+[[exercises]]
+name = "threads16"
+dir = "20_threads"
+hint = ""
+
+# ASYNC
+
+[[exercises]]
+name = "async1"
+dir = "21_async"
+hint = ""
+
+[[exercises]]
+name = "async2"
+dir = "21_async"
+hint = ""
+
+[[exercises]]
+name = "async3"
+dir = "21_async"
+hint = ""
+
+[[exercises]]
+name = "async4"
+dir = "21_async"
+hint = ""
+
+[[exercises]]
+name = "async5"
+dir = "21_async"
+hint = ""
+
+[[exercises]]
+name = "async6"
+dir = "21_async"
+hint = ""
+
+[[exercises]]
+name = "async7"
+dir = "21_async"
+hint = ""
+
+[[exercises]]
+name = "async8"
+dir = "21_async"
+hint = ""
+
+[[exercises]]
+name = "async9"
+dir = "21_async"
+hint = ""
+
+[[exercises]]
+name = "futures1"
+dir = "21_async"
+hint = ""
+
+[[exercises]]
+name = "futures2"
+dir = "21_async"
+hint = ""
+
+[[exercises]]
+name = "futures3"
+dir = "21_async"
+hint = ""
+
+[[exercises]]
+name = "futures4"
+dir = "21_async"
+hint = ""
+
+[[exercises]]
+name = "streams1"
+dir = "21_async"
+hint = ""
+
+[[exercises]]
+name = "streams2"
+dir = "21_async"
+hint = ""
+
+[[exercises]]
+name = "streams3"
+dir = "21_async"
+hint = ""
+
+# OOP
+
+[[exercises]]
+name = "oop1"
+dir = "23_oop"
+hint = ""
+
+[[exercises]]
+name = "oop2"
+dir = "23_oop"
+hint = ""
+
+[[exercises]]
+name = "oop3"
+dir = "23_oop"
+hint = ""
+
+[[exercises]]
+name = "oop4"
+dir = "23_oop"
+hint = ""
+
+[[exercises]]
+name = "oop5"
+dir = "23_oop"
+hint = ""
+
+[[exercises]]
+name = "oop6"
+dir = "23_oop"
+hint = ""
 
 # MACROS
 
@@ -1971,3 +2426,17 @@ name = "as_ref_mut"
 dir = "23_conversions"
 hint = """
 Add `AsRef<str>` or `AsMut<u32>` as a trait bound to the functions."""
+
+# I/O
+
+[[exercises]]
+name = "io1"
+dir = "24_io"
+hint = ""
+
+[[exercises]]
+name = "io2"
+dir = "24_io"
+hint = ""
+
+
