@@ -1,5 +1,0 @@
-DON'T EDIT THIS FILE!
-
-test_failure
-
-test_success
