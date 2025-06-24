@@ -6,7 +6,6 @@ While Rustlings provides a solid introduction to Rust concepts, Rusticles extend
 
 --
 
-
 🚀 Features
 
     🧩 Custom exercises not found in Rustlings
@@ -19,65 +18,6 @@ While Rustlings provides a solid introduction to Rust concepts, Rusticles extend
 
     ✅ CLI workflow similar to Rustlings, so it feels familiar
 
-
---
-
-🔧 Installation
-
-Clone the repo and install the necessary components:
-```bash
-git clone https://github.com/your-username/rusticles.git
-cd rusticles
-cargo install --path .
-```
-
---
-
-📘 Getting Started
-
-To begin practicing, run:
-```bash
-rusticles start
-```
-You’ll be shown the next exercises scheduled for today. If you’re new, you’ll start with a fresh set of initial challenges.
-
-To manually browse and run specific exercises:
-```bash
-rusticles list     # Lists all exercises and their status
-rusticles run N    # Run exercise N
-```
-To reset your progress:
-```bash
-rusticles reset 
-```
-
---
-
-📅 Spaced Repetition
-
-Rusticles uses a simple spaced repetition algorithm (like SuperMemo or Anki) to schedule reviews:
-
-- When you complete an exercise, you rate your recall.
-
-- Based on your score, Rusticles reschedules that challenge.
-
-- Each day, run rusticles start to see your review queue.
-
-This method ensures that you're consistently reinforcing your knowledge without burning out.
-
---
-
-📂 Project Structure
-
-```bash
-/exercises
-    01_variables/
-    02_functions/
-    ...
-/src
-    main.rs       # CLI entry point
-    scheduler.rs  # Spaced repetition logic
-```
 --
 
 🌱 Contributing
