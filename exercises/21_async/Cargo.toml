@@ -1,5 +1,5 @@
 [package]
-name = "async"
+name = "async_exercises"
 version = "0.1.0"
 edition = "2024"
 
